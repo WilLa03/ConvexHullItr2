@@ -5,7 +5,7 @@ using UnityEngine;
 public class CircleManager : MonoBehaviour
 {
     public List<CircleBehavior> circles;
-    [SerializeField] public Sorting sorting;
+    [SerializeField] public Algorithms sorting;
     public int halfLenght;
     void Awake()
     {
@@ -20,14 +20,6 @@ public class CircleManager : MonoBehaviour
             //circle.DoUpdate();
         }
         sorting.DoSorting();
-        for (int i = 0; i < halfLenght; i++)
-        {
-            circles[i].ChangeColorGreen();
-        }
-        for (int i = halfLenght; i < circles.Count; i++)
-        {
-            circles[i].ChangeColorWhite();
-        }
     }
 
     public void ResetAll()

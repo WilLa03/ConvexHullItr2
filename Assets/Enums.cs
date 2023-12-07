@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Enums : ScriptableObject
 {
-    public SortingType sortingType;
-    public enum SortingType
+    public Algorithms algorithmsType;
+    public enum Algorithms
     {
         Insert,
         Bubble,

@@ -59,21 +59,21 @@ public class SimulationManager : MonoBehaviour
             if (finaltimes[finaltimes.Count-1] > 0.1f)
             {
                 circlesTotal.RemoveAt(circlesTotal.Count-1);
-                Write(finaltimes, false);
-                Write(circlesTotal, true);
+                //Write(finaltimes, false);
+                //Write(circlesTotal, true);
                 if (doAll.DoAll)
                 {
-                    if (manager.sorting.enums.sortingType == Enums.SortingType.Insert)
+                    if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Insert)
                     {
-                        manager.sorting.enums.sortingType = Enums.SortingType.Bubble;
+                        manager.sorting.enums.algorithmsType = Enums.Algorithms.Bubble;
                         DoReset();
                     }
-                    else if (manager.sorting.enums.sortingType == Enums.SortingType.Bubble)
+                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Bubble)
                     {
-                        manager.sorting.enums.sortingType = Enums.SortingType.Merge;
+                        manager.sorting.enums.algorithmsType = Enums.Algorithms.Merge;
                         DoReset();
                     }
-                    else if (manager.sorting.enums.sortingType == Enums.SortingType.Merge)
+                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Merge)
                     {
                         doAll.DoAll = false;
                     }
@@ -100,8 +100,8 @@ public class SimulationManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        Write(finaltimes, false);
-        Write(circlesTotal, true);
+        //Write(finaltimes, false);
+        //Write(circlesTotal, true);
         doAll.DoAll = false;
     }
 
@@ -110,11 +110,11 @@ public class SimulationManager : MonoBehaviour
         var path = filePath;
         if (!ballnr)
         {
-            path = path + Enum.GetName(typeof(Enums.SortingType), manager.sorting.enums.sortingType)+ ".txt";
+            path = path + Enum.GetName(typeof(Enums.Algorithms), manager.sorting.enums.algorithmsType)+ ".txt";
         }
         else
         {
-            path = path + "Number Of Balls" + Enum.GetName(typeof(Enums.SortingType), manager.sorting.enums.sortingType)+ ".txt";
+            path = path + "Number Of Balls" + Enum.GetName(typeof(Enums.Algorithms), manager.sorting.enums.algorithmsType)+ ".txt";
         }
         
 
@@ -122,11 +122,11 @@ public class SimulationManager : MonoBehaviour
         {
             if (!ballnr)
             {
-                writer.Write(Enum.GetName(typeof(Enums.SortingType), manager.sorting.enums.sortingType) + ";");
+                writer.Write(Enum.GetName(typeof(Enums.Algorithms), manager.sorting.enums.algorithmsType) + ";");
             }
             else
             {
-                writer.Write( "Number Of Balls"+ Enum.GetName(typeof(Enums.SortingType), manager.sorting.enums.sortingType)+ ";");
+                writer.Write( "Number Of Balls"+ Enum.GetName(typeof(Enums.Algorithms), manager.sorting.enums.algorithmsType)+ ";");
             }
             for (int i = 0; i < list.Count; i++)
             {

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7211b651985eda4e96d1cd4ab77a362, type: 3}
   m_Name: Insert
   m_EditorClassIdentifier: 
-  sortingType: 2
+  algorithmsType: 1

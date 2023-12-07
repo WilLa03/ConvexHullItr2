@@ -11,21 +11,21 @@ public class Menu : MonoBehaviour
     {
         if (i == 0)
         {
-            _enums.sortingType = Enums.SortingType.Insert;
+            _enums.algorithmsType = Enums.Algorithms.Insert;
         }
         else if (i == 1)
         {
-            _enums.sortingType = Enums.SortingType.Bubble;
+            _enums.algorithmsType = Enums.Algorithms.Bubble;
         }
         else if (i == 2)
         {
-            _enums.sortingType = Enums.SortingType.Merge;
+            _enums.algorithmsType = Enums.Algorithms.Merge;
         }
     }
 
     public void setDoAll(bool t)
     {
         doAll.DoAll = t;
-        _enums.sortingType = Enums.SortingType.Insert;
+        _enums.algorithmsType = Enums.Algorithms.Insert;
     }
 }

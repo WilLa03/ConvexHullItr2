@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class CircleBehavior : MonoBehaviour
 {
-    private Vector3 position;
+    public Vector3 position;
     private Vector2 direction;
     public float distance;
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -37,9 +37,10 @@ public class CircleBehavior : MonoBehaviour
         gameObject.transform.position = newpos;
     }
 
-    public void ChangeColorWhite()
+    public void ChangeColor(int c)
     {
-        _spriteRenderer.color = Color.white;
+        Debug.Log(c);
+        _spriteRenderer.color = new Color(255,0,0);
     }
     public void ChangeColorGreen()
     {

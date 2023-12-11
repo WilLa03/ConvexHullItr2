@@ -118,41 +118,37 @@ public class Algorithms : MonoBehaviour
             }
         }
         Swap(0,min);
-        CircleBehavior[] temparray = new CircleBehavior[_manager.circles.Count-1];
-        for (int i = 1; i < _manager.circles.Count; i++)
+        var p0 = _manager.circles[0];
+        CircleBehavior[] temparray = new CircleBehavior[_manager.circles.Count];
+        for (int i = 0; i < _manager.circles.Count; i++)
         {
-            temparray[i-1] = _manager.circles[i];
+            temparray[i] = _manager.circles[i];
         }
         CreateAngleArray();
         Sort(angles,temparray);
         int m = 1;
-        for (int i=1; i<_manager.circles.Count; i++)
+        for (int i=1; i<temparray.Length; i++)
         {
-            // Keep removing i while angle of i and i+1 is same
-            // with respect to p0
-            while (i < _manager.circles.Count - 1 && orientation(_manager.circles[0].transform.position, _manager.circles[1].transform.position, _manager.circles[i+1].transform.position) == 0)
+            while (i < temparray.Length - 1 && orientation(p0.transform.position, temparray[i].transform.position, temparray[i+1].transform.position) == 0)
             {
                 i++;
             }
-            _manager.circles[m] = _manager.circles[i];
-            m++;  // Update size of modified array
+            temparray[m] = temparray[i];
+            m++; 
         }
         if (m < 3) return;
         Stack<CircleBehavior> s = new Stack<CircleBehavior>();
-        s.Push(_manager.circles[0]);
-        s.Push(_manager.circles[1]);
-        s.Push(_manager.circles[2]);
+        s.Push(temparray[0]);
+        s.Push(temparray[1]);
+        s.Push(temparray[2]);
         for (int i = 3; i < m; i++)
         {
-            // Keep removing top while the angle formed by
-            // points next-to-top, top, and points[i] makes
-            // a non-left turn
             while (s.Count > 1 && orientation(s.ElementAt(1).transform.position, s.ElementAt(0).transform.position,
-                       _manager.circles[i].transform.position) != 2)
+                       temparray[i].transform.position) != 2)
             {
                 s.Pop();
             }
-            s.Push(_manager.circles[i]);
+            s.Push(temparray[i]);
         }
         
         while (s.Count !=0)
@@ -166,6 +162,13 @@ public class Algorithms : MonoBehaviour
         {
             hull[i].ChangeColor(temp+i*tempf);
         }
+        for (int i = 0; i < _manager.circles.Count; i++)
+        {
+            if (!hull.Contains(_manager.circles[i]))
+            {
+                _manager.circles[i].ResetColor();
+            }
+        }
 
     }
     private void Swap(int oldpos, int newpos)
@@ -176,15 +179,15 @@ public class Algorithms : MonoBehaviour
     }
     private void CreateAngleArray()
     {
-        angles = new double[_manager.circles.Count - 1];
-        for (int i = 1; i < _manager.circles.Count; i++)
+        angles = new double[_manager.circles.Count];
+        for (int i = 0; i < _manager.circles.Count; i++)
         {
             double mainPointX = _manager.circles[0].transform.position.x;
             double mainPointY = _manager.circles[0].transform.position.y;
             double otherPointX = _manager.circles[i].transform.position.x;
             double otherPointY = _manager.circles[i].transform.position.y;
             double angle = CalculateAngle(mainPointX,mainPointY,otherPointX,otherPointY);
-            angles[i-1] = angle;
+            angles[i] = angle;
         }
     }
 

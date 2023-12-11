@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
-  AmountOfCircles: 10
+  AmountOfCircles: 5
   circle: {fileID: 8241555747848902022, guid: 51dfa0e394a1b37429098c2f44c98b51, type: 3}
   manager: {fileID: 850285837}
   AdditionalBalls: 0

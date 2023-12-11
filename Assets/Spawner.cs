@@ -24,8 +24,7 @@ public class Spawner : MonoBehaviour
     {
         for (int j = 0; j < AdditionalBalls; j++)
         {
-            Vector3 pos = new Vector3(Random.Range(-8.65f, 8.65f), Random.Range(-4.75f, 4.75f), 0);
-            Debug.Log(pos);
+            Vector3 pos = new Vector3(Random.Range(-width, width), Random.Range(-height, height), 0);
             manager.circles.Add(Instantiate(circle, pos,Quaternion.identity).GetComponent<CircleBehavior>());
         }
         manager.halfLenght=manager.circles.Count /2;

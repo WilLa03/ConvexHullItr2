@@ -63,17 +63,17 @@ public class SimulationManager : MonoBehaviour
                 //Write(circlesTotal, true);
                 if (doAll.DoAll)
                 {
-                    if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Insert)
+                    if (manager.sorting.enums.algorithmsType == Enums.Algorithms.GrahamScan)
                     {
-                        manager.sorting.enums.algorithmsType = Enums.Algorithms.Bubble;
+                        manager.sorting.enums.algorithmsType = Enums.Algorithms.GiftWrapping;
                         DoReset();
                     }
-                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Bubble)
+                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.GiftWrapping)
                     {
-                        manager.sorting.enums.algorithmsType = Enums.Algorithms.Merge;
+                        manager.sorting.enums.algorithmsType = Enums.Algorithms.ChansAlgorithm;
                         DoReset();
                     }
-                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.Merge)
+                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.ChansAlgorithm)
                     {
                         doAll.DoAll = false;
                     }

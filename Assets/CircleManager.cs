@@ -9,7 +9,7 @@ public class CircleManager : MonoBehaviour
     public int halfLenght;
     void Awake()
     {
-        //Random.InitState(1778725);
+        Random.InitState(1778725);
         circles.Clear();
     }
 

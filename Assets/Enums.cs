@@ -7,8 +7,8 @@ public class Enums : ScriptableObject
     public Algorithms algorithmsType;
     public enum Algorithms
     {
-        Insert,
-        Bubble,
-        Merge,
+        GrahamScan,
+        GiftWrapping,
+        ChansAlgorithm,
     }
 }

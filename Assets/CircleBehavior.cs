@@ -9,7 +9,7 @@ public class CircleBehavior : MonoBehaviour
     private Vector2 direction;
     public float distance;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    
+     /*
     void Start()
     {
         while (direction.x == 0 && direction.y == 0)
@@ -36,15 +36,15 @@ public class CircleBehavior : MonoBehaviour
         Vector3 newpos = new Vector3(position.x + direction.x*1/60, position.y + direction.y*1/60, position.z);
         gameObject.transform.position = newpos;
     }
-
-    public void ChangeColor(int c)
+    */
+    public void ChangeColor(float c)
     {
-        Debug.Log(c);
-        _spriteRenderer.color = new Color(255,0,0);
+        _spriteRenderer.material.color = new Color(1f-c/255f,0,0f+c/255f);
     }
-    public void ChangeColorGreen()
+
+    public void ResetColor()
     {
-        _spriteRenderer.color = Color.green;
+        _spriteRenderer.material.color = Color.black;
     }
 
     public void Remove()

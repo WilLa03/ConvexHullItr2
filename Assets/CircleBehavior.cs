@@ -41,6 +41,7 @@ public class CircleBehavior : MonoBehaviour
     {
         _spriteRenderer.material.color = new Color(1f-c/255f,0,0f+c/255f);
     }
+    
 
     public void ResetColor()
     {

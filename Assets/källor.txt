@@ -1,6 +1,8 @@
 https://en.wikipedia.org/wiki/Convex_hull_algorithms
 https://en.wikipedia.org/wiki/Gift_wrapping_algorithm
 https://en.wikipedia.org/wiki/Graham_scan
-https://en.wikipedia.org/wiki/Chan%27s_algorithm
+https://www.geeksforgeeks.org/convex-hull-monotone-chain-algorithm/?ref=lbp
+https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain#C++
 
 https://www.geeksforgeeks.org/convex-hull-using-jarvis-algorithm-or-wrapping/
+https://stackoverflow.com/questions/14671206/how-to-compute-convex-hull-in-c-sharp

@@ -190,7 +190,7 @@ public class Algorithms : MonoBehaviour
         // Build lower hull
         for (int i = 0; i < _manager.circles.Count; ++i)
         {
-            while (k >= 2 && orientation(H[k - 2].transform.position, H[k - 1].transform.position, templist[i].position) == 0)
+            while (k >= 2 && orientation(H[k - 2].transform.position, H[k - 1].transform.position, templist[i].position) == 2)
                 k--;
             H[k++] = templist[i].gameObject.GetComponent<CircleBehavior>();
         }
@@ -198,7 +198,7 @@ public class Algorithms : MonoBehaviour
         // Build upper hull
         for (int i = _manager.circles.Count - 2, t = k + 1; i >= 0; i--)
         {
-            while (k >= t && orientation(H[k - 2].transform.position, H[k - 1].transform.position, templist[i].position) <= 0)
+            while (k >= t && orientation(H[k - 2].transform.position, H[k - 1].transform.position, templist[i].position) == 2)
                 k--;
             H[k++] = templist[i].gameObject.GetComponent<CircleBehavior>();
         }
@@ -215,52 +215,6 @@ public class Algorithms : MonoBehaviour
                 _manager.circles[i].ResetColor();
             }
         }
-        
-        
-        
-        
-
-
-
-
-
-
-        
-        /*
-        float xmin = _manager.circles[0].transform.position.x;
-        int min = 0;
-        //Gets the starting point. The point with the lowest y value and in case of a tie the one with lowest x between them.
-        for (int i = 1; i < _manager.circles.Count; i++)
-        {
-            float x = _manager.circles[i].transform.position.x;
-            if (x < xmin || (xmin == x &&
-                             _manager.circles[i].transform.position.y < _manager.circles[min].transform.position.y))
-            {
-                xmin = _manager.circles[i].transform.position.x;
-                min = i;
-            }
-        }
-        Swap(0,min);
-        var p0 = _manager.circles[0];
-        List<CircleBehavior> topside = new List<CircleBehavior>();
-        List<CircleBehavior> botside = new List<CircleBehavior>();
-        
-        
-        
-        
-        
-        
-        
-        
-        CircleBehavior[] arraytop = new CircleBehavior[_manager.circles.Count];
-        CircleBehavior[] arraybot = new CircleBehavior[_manager.circles.Count];
-        for (int i = 0; i < _manager.circles.Count; i++)
-        {
-            for (int j = 1; (j< 1*Mathf.Pow((1*Mathf.Pow(i,i)),(1*Mathf.Pow(i,i)))); j++)
-            {
-                
-            }
-        }*/
     }
     private void Swap(int oldpos, int newpos)
     {
@@ -281,7 +235,6 @@ public class Algorithms : MonoBehaviour
             angles[i] = angle;
         }
     }
-
     private double CalculateAngle(double px1, double py1, double px2, double py2)
     {
         double xDiff = px2 - px1;
@@ -302,21 +255,5 @@ public class Algorithms : MonoBehaviour
                 j--;
             }
         }
-    }
-
-    private List<CircleBehavior> SortList(List<CircleBehavior> l)
-    {
-        for (int i = 1; i < l.Count; i++)
-        {
-            var check = l[i].transform.position;
-            int j = i - 1;
-            while (j >= 0 && (l[j].transform.position.y > check.y)) //&& l[j].transform.position.x > check.x 
-            {
-                (l[j + 1], l[j]) = (l[j], l[j + 1]);
-                j--;
-            }
-        }
-
-        return l;
     }
 }

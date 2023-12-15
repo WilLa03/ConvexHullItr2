@@ -11,10 +11,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject circle;
     [SerializeField] private CircleManager manager;
     public int AdditionalBalls;
-    private float height;
-    private float width;
+    [HideInInspector] public float height;
+    [HideInInspector] public float width;
 
-    private void Start()
+    private void Awake()
     {
         height = Camera.orthographicSize -0.25f;
         width = height * Camera.aspect + 0.25f;

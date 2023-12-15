@@ -59,8 +59,8 @@ public class SimulationManager : MonoBehaviour
             if (finaltimes[finaltimes.Count-1] > 0.1f)
             {
                 circlesTotal.RemoveAt(circlesTotal.Count-1);
-                //Write(finaltimes, false);
-                //Write(circlesTotal, true);
+                Write(finaltimes, false);
+                Write(circlesTotal, true);
                 if (doAll.DoAll)
                 {
                     if (manager.sorting.enums.algorithmsType == Enums.Algorithms.GrahamScan)
@@ -70,10 +70,10 @@ public class SimulationManager : MonoBehaviour
                     }
                     else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.GiftWrapping)
                     {
-                        manager.sorting.enums.algorithmsType = Enums.Algorithms.ChansAlgorithm;
+                        manager.sorting.enums.algorithmsType = Enums.Algorithms.MonotoneChain;
                         DoReset();
                     }
-                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.ChansAlgorithm)
+                    else if (manager.sorting.enums.algorithmsType == Enums.Algorithms.MonotoneChain)
                     {
                         doAll.DoAll = false;
                     }
@@ -100,8 +100,8 @@ public class SimulationManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        //Write(finaltimes, false);
-        //Write(circlesTotal, true);
+        Write(finaltimes, false);
+        Write(circlesTotal, true);
         doAll.DoAll = false;
     }
 

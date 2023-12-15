@@ -9,6 +9,6 @@ public class Enums : ScriptableObject
     {
         GrahamScan,
         GiftWrapping,
-        ChansAlgorithm,
+        MonotoneChain,
     }
 }

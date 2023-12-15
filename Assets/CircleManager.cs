@@ -17,7 +17,7 @@ public class CircleManager : MonoBehaviour
     {
         foreach (var circle in circles)
         {
-            //circle.DoUpdate();
+            circle.DoUpdate();
         }
         sorting.DoSorting();
     }

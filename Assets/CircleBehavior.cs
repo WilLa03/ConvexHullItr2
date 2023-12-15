@@ -9,10 +9,11 @@ public class CircleBehavior : MonoBehaviour
     private Vector2 direction;
     public float distance;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-     /*
+    [SerializeField] private Spawner spawner;
+     
     void Start()
     {
-        while (direction.x == 0 && direction.y == 0)
+        while (direction.x == 0 || direction.y == 0)
         {
             direction.x = Random.Range(-10, 11);
             direction.y = Random.Range(-10, 11);
@@ -23,20 +24,20 @@ public class CircleBehavior : MonoBehaviour
     public void DoUpdate()
     {
         position = gameObject.transform.position;
-        if (position.y > 4.5f || position.y < -4.5f)
+        if (position.y > 4.88f || position.y < -4.88f)
         {
             direction.y *= -1;
             position = gameObject.transform.position;
         }
-        if (position.x > 8.4f || position.x < -8.4f)
+        if (position.x > 10.49f || position.x < -10.49f)
         {
             direction.x *= -1;
             position = gameObject.transform.position;
         }
-        Vector3 newpos = new Vector3(position.x + direction.x*1/60, position.y + direction.y*1/60, position.z);
+        Vector3 newpos = new Vector3(position.x + direction.x*1/100, position.y + direction.y*1/100, position.z);
         gameObject.transform.position = newpos;
     }
-    */
+    
     public void ChangeColor(float c)
     {
         _spriteRenderer.material.color = new Color(1f-c/255f,0,0f+c/255f);

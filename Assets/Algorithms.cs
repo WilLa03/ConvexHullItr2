@@ -11,6 +11,7 @@ using Debug = UnityEngine.Debug;
 public class Algorithms : MonoBehaviour
 {
     [SerializeField] private CircleManager _manager;
+    [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] public Enums enums;
     private float temp;
     private double[] angles;
@@ -30,7 +31,7 @@ public class Algorithms : MonoBehaviour
             case Enums.Algorithms.GrahamScan:
                 GrahamScan();
                 break;
-            case Enums.Algorithms.ChansAlgorithm:
+            case Enums.Algorithms.MonotoneChain:
                 ChansAlgorithm();
                 break;
         }
@@ -46,11 +47,7 @@ public class Algorithms : MonoBehaviour
         }
         return (ori > 0)? 1: 2; // clock or counterclock wise
     }
-
-    private float Distance(Vector3 p1, Vector3 p2)
-    {
-        return (p1.x - p2.x)*(p1.x - p2.x) + (p1.y - p2.y)*(p1.y - p2.y);
-    }
+    
     private void GiftWrapping()
     {
         if (_manager.circles.Count < 3)
@@ -85,6 +82,7 @@ public class Algorithms : MonoBehaviour
         {
             hull[i].ChangeColor(temp+i*tempf);
         }
+        LineRenderer(hull);
         for (int i = 0; i < _manager.circles.Count; i++)
         {
             if (!hull.Contains(_manager.circles[i]))
@@ -139,8 +137,7 @@ public class Algorithms : MonoBehaviour
         s.Push(temparray[2]);
         for (int i = 3; i < m; i++)
         {
-            while (s.Count > 1 && orientation(s.ElementAt(1).transform.position, s.ElementAt(0).transform.position,
-                       temparray[i].transform.position) != 2)
+            while (s.Count > 1 && orientation(s.ElementAt(1).transform.position, s.ElementAt(0).transform.position, temparray[i].transform.position) != 2)
             {
                 s.Pop();
             }
@@ -159,6 +156,7 @@ public class Algorithms : MonoBehaviour
         {
             hull[i].ChangeColor(temp+i*tempf);
         }
+        LineRenderer(hull);
         for (int i = 0; i < _manager.circles.Count; i++)
         {
             if (!hull.Contains(_manager.circles[i]))
@@ -208,6 +206,7 @@ public class Algorithms : MonoBehaviour
         {
             Hull[i].ChangeColor(temp+i*tempf);
         }
+        LineRenderer(Hull);
         for (int i = 0; i < _manager.circles.Count; i++)
         {
             if (!Hull.Contains(_manager.circles[i]))
@@ -255,5 +254,18 @@ public class Algorithms : MonoBehaviour
                 j--;
             }
         }
+    }
+
+    private void LineRenderer(List<CircleBehavior> hull)
+    {
+        Vector3[] positions = new Vector3[hull.Count + 1];
+        for (int i = 0; i < hull.Count; i++)
+        {
+            positions[i] = hull[i].transform.position;
+        }
+
+        positions[^1] = positions[0];
+        lineRenderer.positionCount = positions.Length;
+        lineRenderer.SetPositions(positions);
     }
 }

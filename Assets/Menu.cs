@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
         }
         else if (i == 2)
         {
-            _enums.algorithmsType = Enums.Algorithms.ChansAlgorithm;
+            _enums.algorithmsType = Enums.Algorithms.MonotoneChain;
         }
     }
 

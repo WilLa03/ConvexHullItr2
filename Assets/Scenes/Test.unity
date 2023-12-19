@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 850285837}
   spawner: {fileID: 1775431419}
-  filePath: C:\Temp\VoronoiItr2\
+  filePath: E:\Programmering 2\VoronoiItr2\
   doAll: {fileID: 11400000, guid: 8cefb7e8c65255b4e95dd38cab8caa07, type: 2}
 --- !u!4 &1844201749
 Transform:
@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 850285837}
     - target: {fileID: 3381337503329873455, guid: 04d79b4d86dcdf34c8f828823897d61e, type: 3}
       propertyPath: AdditionalBalls
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3381337503329873455, guid: 04d79b4d86dcdf34c8f828823897d61e, type: 3}
       propertyPath: AmountOfCircles
